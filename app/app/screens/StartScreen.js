@@ -49,7 +49,7 @@ class StartScreen extends React.Component {
         super(props);
 
         this.state = {
-            slider1: 270
+            time: 270
         };
     }
 
@@ -126,12 +126,12 @@ class StartScreen extends React.Component {
                                                         style={{
                                                             alignItems: 'center',
                                                         }}>
-                                                        <CircularSlider width={200}
-                                                                        height={200}
+                                                        <CircularSlider width={230}
+                                                                        height={230}
                                                                         meterColor={Colors.purple}
                                                                         pinColor={Colors.darkPurple}
-                                                                        value={this.state.slider1}
-                                                                        onValueChange={(value) => this.setState({ slider1: value })} />
+                                                                        value={this.state.time}
+                                                                        onValueChange={(value) => this.setState({ time: value })} />
                                                     </View>
                                                 </View>
                                                 <View style={{ alignItems: 'center' }}>

@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     separator: {
         borderBottomWidth: 2,
         borderColor:       Colors.middleGray,
-        marginVertical:    30,
+        marginTop:         30,
+        marginBottom:      20,
         width:             '70%',
         alignSelf:         'center'
     },

@@ -63,7 +63,7 @@ class CircularSlider extends Component {
     handlePanResponderMove ({ nativeEvent: { locationX, locationY } }) {
         this.props.onValueChange(
             this.cartesianToPolar(
-                locationX - this.props.width / 4,
+                locationX - this.props.width / 8,
                 locationY - this.props.height - (
                     this.props.height / 2
                 )
@@ -75,13 +75,18 @@ class CircularSlider extends Component {
             , { cx, cy, r }                                                 = this.state
             , startCoord                                                    = this.polarToCartesian(0)
             , endCoord                                                      = this.polarToCartesian(value)
+
+        let minutes = (
+            value / 360 * 60
+        ).toFixed(0);
+
         return (
             <Svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
                 <Circle cx={cx}
                         cy={cy}
                         r={r}
                         stroke='#eee'
-                        strokeWidth={0.5}
+                        strokeWidth={15}
                         fill='none' />
                 <Path stroke={meterColor} strokeLinecap="round" strokeWidth={20} fill='none'
                       d={`M${startCoord.x} ${startCoord.y} A ${r} ${r} 0 ${value
@@ -89,6 +94,22 @@ class CircularSlider extends Component {
                 <G x={endCoord.x - 7.5} y={endCoord.y - 7.5}>
                     <Circle cx={7.5} cy={7.5} r={15} fill={pinColor} {...this._panResponder.panHandlers} />
                 </G>
+                <Text key={value + ''}
+                      x={width / 2}
+                      y={110}
+                      fontSize={40}
+                      fill={'#000'}
+                      textAnchor="middle">
+                    {minutes}
+                </Text>
+                <Text key={'minutes'}
+                      x={width / 2}
+                      y={150}
+                      fontSize={40}
+                      fill={'#000'}
+                      textAnchor="middle">
+                    Minutes
+                </Text>
             </Svg>
         )
     }
