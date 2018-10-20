@@ -1,15 +1,20 @@
 import Colors         from './Colors';
 import { StyleSheet } from 'react-native';
+import PlatformHelper from '../helper/Platform';
 
 const styles = StyleSheet.create({
-    flexView:       {
+    flexView:           {
+        flex:          1,
+        paddingBottom: PlatformHelper.isIPhoneX() ? 20 : 0
+    },
+    flexScrollView:     {
         flex: 1,
     },
-    flexScrollView: {
-        flex: 1,
-    },
-    whiteView:      {
+    whiteView:          {
         backgroundColor: Colors.white,
+    },
+    horizontalCentered: {
+        alignItems: 'center'
     }
 });
 

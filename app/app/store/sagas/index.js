@@ -1,14 +1,15 @@
 import { all }               from 'redux-saga/effects';
 import { put }               from 'redux-saga/effects';
-import { select }            from 'redux-saga/effects';
 import { takeLatest }        from 'redux-saga/effects';
 // Types
 import { UserTypes }         from '../actions/user';
 // Actions
 import { NavigationActions } from 'react-navigation';
+import { VideoActions }      from '../actions/video';
 // Sagas
 import UserSagas             from './user';
-import Screens               from '../../constants/Screens';
+import VideoSagas            from './video';
+import { VideoTypes }        from '../actions/video';
 
 const root = function* () {
     yield all([
@@ -19,12 +20,13 @@ const root = function* () {
         takeLatest(UserTypes.LOGOUT,              UserSagas.logout),
         takeLatest(UserTypes.UPDATE_USER,         UserSagas.updateUser),
         takeLatest(UserTypes.UPDATE_USER_SUCCESS, UserSagas.updateUserSuccess),
+        takeLatest(VideoTypes.FETCH_VIDEOS,       VideoSagas.fetchVideos),
         // @formatter:on
     ]);
 };
 
 const startUp = function* () {
-    yield tokenSaga();
+    yield put(VideoActions.fetchVideos());
 };
 
 const preLoading = function* () {

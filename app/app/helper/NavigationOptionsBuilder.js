@@ -34,9 +34,10 @@ const NavigationOptionsBuilder = (title, settings) => {
         }
 
         if (settings.noBorder) {
-            defaultOptions.headerStyle = (
+            defaultOptions.headerStyle = [
+                defaultOptions.headerStyle,
                 styles.headerNoBorder
-            );
+            ];
         }
 
         if (settings.transparent) {
