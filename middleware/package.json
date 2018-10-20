@@ -1,0 +1,26 @@
+{
+  "name": "node-middleware",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.2",
+    "googleapis": "^34.0.0",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "husky": "^1.1.2",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0"
+  },
+  "scripts": {
+    "start": "node --inspect=9229 index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
