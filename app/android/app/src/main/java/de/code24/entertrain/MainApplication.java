@@ -3,6 +3,8 @@ package de.code24.entertrain;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
+import com.horcrux.svg.SvgPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.reactlibrary.RNReactNativeHapticFeedbackPackage;
 import com.aakashns.reactnativedialogs.ReactNativeDialogsPackage;
@@ -28,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
+            new SvgPackage(),
             new SplashScreenReactPackage(),
             new RNReactNativeHapticFeedbackPackage(),
             new ReactNativeDialogsPackage(),

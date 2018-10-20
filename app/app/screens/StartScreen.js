@@ -17,6 +17,7 @@ import TabView                  from '../components/TabView';
 import Button                   from '../components/Button';
 import Separator                from '../components/Separator';
 import Colors                   from '../styles/Colors';
+import CircularSlider           from '../components/CircularSlider'
 
 @connect(
     (state) => (
@@ -43,6 +44,14 @@ class StartScreen extends React.Component {
             hideHeader: true
         });
     };
+
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            slider1: 270
+        };
+    }
 
     @autobind
     showDialog () {
@@ -113,8 +122,18 @@ class StartScreen extends React.Component {
                                                         {I18n.t('howLongShouldEntertain')}
                                                     </Text>
                                                     <Separator />
+                                                    <View
+                                                        style={{
+                                                            alignItems: 'center',
+                                                        }}>
+                                                        <CircularSlider width={200}
+                                                                        height={200}
+                                                                        meterColor={Colors.purple}
+                                                                        pinColor={Colors.darkPurple}
+                                                                        value={this.state.slider1}
+                                                                        onValueChange={(value) => this.setState({ slider1: value })} />
+                                                    </View>
                                                 </View>
-
                                                 <View style={{ alignItems: 'center' }}>
                                                     <Button label={I18n.t('ok')} />
                                                 </View>
@@ -134,7 +153,7 @@ const styles = StyleSheet.create({
     descriptionText:     {
         fontStyle:  'italic',
         fontWeight: 'bold',
-        fontSize:   25
+        fontSize:   23
     },
     tabViewContainer:    {
         width:    '100%',
@@ -147,7 +166,7 @@ const styles = StyleSheet.create({
     },
     container:           {
         paddingTop:    20,
-        paddingBottom: 50
+        paddingBottom: 30
     },
     selectedButton:      {
         backgroundColor: 'red',

@@ -11,7 +11,8 @@ const colors = {
     middleGray:     '#E0E0E0',
     red:            '#E84B37',
     white:          '#FEFEFE',
-    purple:         'rgb(168,149,247)'
+    purple:         '#A895F7',
+    darkPurple:     '#8679b9',
 };
 
 export default colors;

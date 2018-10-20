@@ -1,6 +1,7 @@
 import React          from 'react';
 import { StyleSheet } from 'react-native';
 import { View }       from 'react-native';
+import Colors         from '../styles/Colors';
 
 class Separator extends React.Component {
 
@@ -15,10 +16,10 @@ class Separator extends React.Component {
 
 const styles = StyleSheet.create({
     separator: {
-        borderBottomWidth: 1,
-        borderColor:       'grey',
-        marginVertical:    40,
-        width:             '60%',
+        borderBottomWidth: 2,
+        borderColor:       Colors.middleGray,
+        marginVertical:    30,
+        width:             '70%',
         alignSelf:         'center'
     },
 });
