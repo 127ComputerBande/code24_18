@@ -14,6 +14,9 @@ import { NavigationActions }    from 'react-navigation';
 import Screens                  from '../constants/Screens';
 import { Image }                from 'react-native';
 import TabView                  from '../components/TabView';
+import Button                   from '../components/Button';
+import Separator                from '../components/Separator';
+import Colors                   from '../styles/Colors';
 
 @connect(
     (state) => (
@@ -86,7 +89,7 @@ class StartScreen extends React.Component {
                 </View>
                 <View style={styles.tabViewContainer}>
                     <TabView
-                        activeButtonStyle={{ backgroundColor: 'rgb(168,149,247)' }}
+                        activeButtonStyle={{ backgroundColor: Colors.purple }}
                         initialIndex={1}
                         tabs={
                             [
@@ -98,29 +101,27 @@ class StartScreen extends React.Component {
                                             </View>
                                         );
                                     },
-                                    title:   'asdf'
+                                    title:   I18n.t('location')
                                 },
                                 {
                                     content: () => {
                                         return (
                                             <View style={{ flex: 1 }}>
                                                 <View style={{ flex: 1 }}>
-                                                    <Text>bsdf</Text>
+                                                    <Text
+                                                        style={styles.descriptionText}>
+                                                        {I18n.t('howLongShouldEntertain')}
+                                                    </Text>
+                                                    <Separator />
                                                 </View>
 
-                                                <View>
-                                                    <TouchableOpacity
-                                                        onPress={() => {
-                                                            alert("adasd");
-                                                        }}
-                                                    >
-                                                        <Text>{I18n.t('ok')}</Text>
-                                                    </TouchableOpacity>
+                                                <View style={{ alignItems: 'center' }}>
+                                                    <Button label={I18n.t('ok')} />
                                                 </View>
                                             </View>
                                         );
                                     },
-                                    title:   'bsdf'
+                                    title:   I18n.t('time')
                                 }
                             ]} />
                 </View>
@@ -130,6 +131,11 @@ class StartScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    descriptionText:     {
+        fontStyle:  'italic',
+        fontWeight: 'bold',
+        fontSize:   25
+    },
     tabViewContainer:    {
         width:    '100%',
         flexGrow: 10
@@ -137,10 +143,11 @@ const styles = StyleSheet.create({
     titleImageContainer: {
         flexGrow:       1,
         justifyContent: 'center',
-        marginBottom:   -20
+        marginBottom:   -50
     },
     container:           {
-        paddingTop: 20
+        paddingTop:    20,
+        paddingBottom: 50
     },
     selectedButton:      {
         backgroundColor: 'red',
@@ -152,8 +159,8 @@ const styles = StyleSheet.create({
         borderColor: 'grey'
     },
     titleImage:          {
-        width:  130,
-        height: 130
+        width:  150,
+        height: 150
     }
 });
 

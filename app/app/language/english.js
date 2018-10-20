@@ -20,7 +20,10 @@ const german = {
     successAlertButtonLabel: 'Success Alert',
     successAlertSample:      'Aktion erfolgreich ausgeführt',
     stagingApiAlertText:     'Diese Version der App befindet sich im Test-Modus.',
-    ok:                      'okay'
+    ok:                      'okay',
+    howLongShouldEntertain:  'Tell us how long we should entertrain you?',
+    location:                'Location',
+    time:                    'Time'
 };
 
 export default german;

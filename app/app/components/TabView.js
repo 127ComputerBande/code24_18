@@ -80,7 +80,7 @@ class TabView extends React.Component {
 
 const styles = StyleSheet.create({
     container:           {
-        padding: 10,
+        padding: 35,
         flex:    1
     },
     tabButtonStyle:      {

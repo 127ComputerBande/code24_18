@@ -68,7 +68,7 @@ class TabViewButton extends React.Component {
 
 const styles = StyleSheet.create({
     buttonStyle:       {
-        height:            50,
+        height:            70,
         justifyContent:    'center',
         flex:              1,
         paddingHorizontal: 10,
@@ -76,15 +76,14 @@ const styles = StyleSheet.create({
         alignItems:        'center'
     },
     firstButton:       {
-        borderTopLeftRadius:    10,
-        borderBottomLeftRadius: 10,
+        borderTopLeftRadius:    20,
+        borderBottomLeftRadius: 20,
     },
     lastButton:        {
-        borderTopRightRadius:    10,
-        borderBottomRightRadius: 10,
+        borderTopRightRadius:    20,
+        borderBottomRightRadius: 20,
     },
     activeButtonStyle: {
-        height:            50,
         justifyContent:    'center',
         flex:              1,
         paddingHorizontal: 10,
@@ -95,6 +94,10 @@ const styles = StyleSheet.create({
     },
     activeLabel:       {
         color: 'black'
+    },
+    label:             {
+        fontWeight: '600',
+        fontSize:   20
     }
 });
 

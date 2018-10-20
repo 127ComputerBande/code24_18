@@ -11,6 +11,7 @@ const colors = {
     middleGray:     '#E0E0E0',
     red:            '#E84B37',
     white:          '#FEFEFE',
+    purple:         'rgb(168,149,247)'
 };
 
 export default colors;
