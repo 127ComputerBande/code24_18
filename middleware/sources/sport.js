@@ -6,6 +6,7 @@ const SPORT_DEUTSCHLAND_API = { url: 'https://sicher.sportdeutschland.tv', name:
 const YOU_SPORT_API = { url: 'https://backend.yousport.de', name: 'YouSport' };
 
 const perPage = 100;
+const hardLimit = 1000;
 
 const getPage = async (api, page = 1) => {
   try {
@@ -32,10 +33,12 @@ const getPage = async (api, page = 1) => {
         description: i.teaser,
         thumbnail: i.images[0],
       })),
+      api.name,
     );
 
     // TODO: Remove!!
-    // if (res.headers['api-total'] > page * perPage) await getPage(api, page + 1)
+    const limit = res.headers['api-total'] < hardLimit ? res.headers['api-total'] : hardLimit;
+    if (limit > page * perPage) await getPage(api, page + 1);
   } catch (error) {
     console.error(error);
     process.exit(-1);
