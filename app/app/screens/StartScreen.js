@@ -7,11 +7,8 @@ import React                    from 'react';
 import { StyleSheet }           from 'react-native';
 import { Text }                 from 'react-native';
 import { View }                 from 'react-native';
-import { TouchableOpacity }     from 'react-native';
+import { TextInput }            from 'react-native';
 import I18n                     from 'react-native-i18n';
-import NavigationHelper         from '../helper/Navigation';
-import { NavigationActions }    from 'react-navigation';
-import Screens                  from '../constants/Screens';
 import { Image }                from 'react-native';
 import TabView                  from '../components/TabView';
 import Button                   from '../components/Button';
@@ -19,6 +16,7 @@ import Separator                from '../components/Separator';
 import Colors                   from '../styles/Colors';
 import CircularSlider           from '../components/CircularSlider';
 import _                        from 'lodash';
+import { VideoActions }         from '../store/actions/video';
 
 @connect(
     (state) => (
@@ -28,11 +26,9 @@ import _                        from 'lodash';
     ),
     (dispatch) => (
         {
-            navigateToVideoSelectScreen: () => {
+            fetchVideosByDuration: (duration) => {
                 dispatch(
-                    NavigationActions.navigate({
-                        routeName: Screens.VIDEO_SELECT_SCREEN
-                    })
+                    VideoActions.fetchVideosByDuration(duration)
                 );
             }
         }
@@ -52,7 +48,7 @@ class StartScreen extends React.Component {
         let tagScanned = _.get(props, 'navigation.state.params.tagScanned', false);
 
         this.state = {
-            time:         15,
+            duration:     15,
             initialIndex: tagScanned ? 0 : 1
         };
     }
@@ -84,6 +80,12 @@ class StartScreen extends React.Component {
         );
     }
 
+    @autobind
+    onSelectTimePressed () {
+        let duration = parseInt(this.state.duration * 60, 10);
+        this.props.fetchVideosByDuration(duration);
+    }
+
     render () {
         return (
             <View style={
@@ -109,8 +111,26 @@ class StartScreen extends React.Component {
                                 {
                                     content: () => {
                                         return (
-                                            <View>
-                                                <Text>asdf</Text>
+                                            <View style={{ flex: 1 }}>
+                                                <View style={{ marginBottom: 30 }}>
+                                                    <Text
+                                                        style={styles.descriptionText}>
+                                                        {I18n.t('tellUsYourDestination')}
+                                                    </Text>
+                                                </View>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.textInputLabel}>Start</Text>
+                                                    <TextInput value={"Unterföhring"}
+                                                               style={styles.textInput} />
+                                                    <Text style={styles.textInputLabel}>Destination</Text>
+                                                    <TextInput value={"München-Pasing"}
+                                                               style={styles.textInput} />
+                                                </View>
+
+                                                <View style={{ alignItems: 'center' }}>
+                                                    <Button onPress={this.onSelectTimePressed}
+                                                            label={I18n.t('ok')} />
+                                                </View>
                                             </View>
                                         );
                                     },
@@ -134,12 +154,14 @@ class StartScreen extends React.Component {
                                                                         height={230}
                                                                         meterColor={Colors.purple}
                                                                         pinColor={Colors.darkPurple}
-                                                                        value={this.state.time}
-                                                                        onValueChange={(value) => this.setState({ time: value })} />
+                                                                        value={this.state.duration}
+                                                                        onValueChange={(value) => this.setState({ duration: value })}
+                                                        />
                                                     </View>
                                                 </View>
                                                 <View style={{ alignItems: 'center' }}>
-                                                    <Button label={I18n.t('ok')} />
+                                                    <Button onPress={this.onSelectTimePressed}
+                                                            label={I18n.t('ok')} />
                                                 </View>
                                             </View>
                                         );
@@ -184,6 +206,20 @@ const styles = StyleSheet.create({
     titleImage:          {
         width:  150,
         height: 150
+    },
+    textInput:           {
+        height:            60,
+        backgroundColor:   Colors.middleGray,
+        borderRadius:      20,
+        marginBottom:      20,
+        paddingHorizontal: 20,
+        fontSize:          20
+    },
+    textInputLabel:      {
+        fontSize:     24,
+        fontWeight:   'bold',
+        marginBottom: 10,
+        marginLeft:   20
     }
 });
 

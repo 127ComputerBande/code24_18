@@ -1,19 +1,21 @@
 export const VideoTypes = {
-    FETCH_VIDEOS:         'Video/FETCH_VIDEOS',
-    FETCH_VIDEOS_SUCCESS: 'Video/FETCH_VIDEOS_SUCCESS',
-    FETCH_VIDEOS_FAILURE: 'Video/FETCH_VIDEOS_FAILURE',
+    FETCH_VIDEOS_BY_DURATION: 'Video/FETCH_VIDEOS_BY_DURATION',
+    FETCH_VIDEOS_SUCCESS:     'Video/FETCH_VIDEOS_SUCCESS',
+    FETCH_VIDEOS_FAILURE:     'Video/FETCH_VIDEOS_FAILURE',
 };
 
-const fetchVideos = () => (
+const fetchVideosByDuration = (duration) => (
     {
-        type: VideoTypes.FETCH_VIDEOS
+        type: VideoTypes.FETCH_VIDEOS_BY_DURATION,
+        duration
     }
 );
 
-const fetchVideosSuccess = ({ videos }) => (
+const fetchVideosSuccess = ({ videos, travelTime }) => (
     {
         type: VideoTypes.FETCH_VIDEOS_SUCCESS,
-        videos
+        videos,
+        travelTime
     }
 );
 
@@ -25,7 +27,7 @@ const fetchVideosFailure = ({ error }) => (
 );
 
 export const VideoActions = {
-    fetchVideos,
+    fetchVideosByDuration,
     fetchVideosSuccess,
     fetchVideosFailure
 };
