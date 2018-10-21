@@ -1,0 +1,46 @@
+{% block field %}
+    {% trans_default_domain 'admin' %}
+    <td class="sonata-ba-list-field sonata-ba-list-field-text">
+        {% set secondsTotal = (value | round(1, 'floor')) %}
+        {% set days         = ((secondsTotal / (3600 * 24)) | round(1, 'floor')) %}
+        {% set hours        = ((secondsTotal / 3600) % 24) %}
+        {% set minutes      = ((secondsTotal / 60) % 60) %}
+        {% set seconds      = (secondsTotal % 60) %}
+
+        {% if days > 0 %}
+            {{ days }}
+            {% if days != 1 %}
+                {{ 'days' | trans }}
+            {% else %}
+                {{ 'day' | trans }}
+            {% endif %}
+        {% endif %}
+
+        {% if hours > 0 %}
+            {{ hours }}
+            {% if hours != 1 %}
+                {{ 'hours' | trans }}
+            {% else %}
+                {{ 'hour' | trans }}
+            {% endif %}
+        {% endif %}
+
+        {% if minutes > 0 %}
+            {{ minutes }}
+            {% if minutes != 1 %}
+                {{ 'minutes' | trans }}
+            {% else %}
+                {{ 'minute' | trans }}
+            {% endif %}
+        {% endif %}
+
+        {% if seconds > 0 %}
+            {{ seconds }}
+            {% if seconds != 1 %}
+                {{ 'seconds' | trans }}
+            {% else %}
+                {{ 'second' | trans }}
+            {% endif %}
+        {% endif %}
+    </td>
+{% endblock %}

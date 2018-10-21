@@ -1,0 +1,12 @@
+services:
+    app.aws_s3.client:
+        class: Aws\S3\S3Client
+        factory: [Aws\S3\S3Client, factory]
+        arguments:
+            -
+                region: '%aws_s3_region%'
+                signature: '%aws_s3_signature%'
+                version: '2006-03-01'
+                credentials:
+                    key: '%aws_s3_key%'
+                    secret: '%aws_s3_secret%'

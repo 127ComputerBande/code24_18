@@ -1,0 +1,11 @@
+{% block image_widget %}
+    {% spaceless %}
+        {% set type = type|default('file') %}
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+        {% if image_web_path is not empty %}
+            <div class="app-image-preview-edit">
+                <img src="{{ image_web_path }}" alt="image_photo" />
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% if value is not empty %}
+        {% set fullUrl = value ~ '&key=' ~ google_api_key %}
+        <a href="{{ fullUrl }}"
+           target="_blank"
+        >
+            {{ fullUrl }}
+        </a>
+    {% endif %}
+{% endblock %}

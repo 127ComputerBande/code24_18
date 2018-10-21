@@ -1,0 +1,32 @@
+parameters:
+    mailer_address: system@lulububu.de
+    mailer_sender_name: System
+    default_sender_mail: no-reply@lulububu.de
+    mail_asset_url: https://symfony.skeleton.dev/
+    database_host: 192.168.99.100
+    database_port: 32706
+    database_name: 'symfony-skeleton'
+    database_user: root
+    database_password: root
+    database_table_prefix: app_
+    jwt_key_pass_phrase: '8sNpCAqywFBHUeakRwjHknbu'
+# You may want to call  sh .tools/generate-jwt-certificates.sh to generate this files
+    jwt_private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
+    jwt_public_key_path: '%kernel.root_dir%/../var/jwt/public.pem'
+    jwt_token_ttl: 63072000
+    log_user_action: false
+    google_api_key: ''
+    test_database_host: 192.168.99.100
+    test_database_port: 32706
+    test_database_name: 'symfony-skeleton-test'
+    test_database_user: root
+    test_database_password: root
+    default_locale: 'de'
+    fallback_locale: 'en'
+    knp_adapter: local
+    aws_s3_key: todo
+    aws_s3_secret: todo
+    aws_s3_region: eu-central-1
+    aws_s3_signature: v4
+    aws_s3_bucket: 'todo'
+    aws_s3_bucket_url: 'todo'

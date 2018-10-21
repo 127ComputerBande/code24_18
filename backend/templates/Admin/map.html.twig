@@ -1,0 +1,134 @@
+<script type="text/javascript">
+    var documentReady  = false;
+    var mapInitialized = false;
+
+    var initMap = function () {
+        if (!documentReady) {
+            return;
+        } else {
+            mapInitialized = true;
+        }
+
+        $('.google-map').each(
+            function () {
+                var currentMap    = $(this);
+                var mapId         = currentMap.attr('id');
+                var mode          = currentMap.attr('data-mode');
+                var latitude      = parseFloat(currentMap.attr('data-latitude'));
+                var longitude     = parseFloat(currentMap.attr('data-longitude'));
+                var radiusInM     = parseInt(currentMap.attr('data-radius'), 10);
+                var center        = {
+                    lat: latitude,
+                    lng: longitude
+                };
+                var mapSettings   = {
+                    center:            center,
+                    scrollwheel:       false,
+                    streetViewControl: false,
+                    zoom:              18
+                };
+                var map           = new google.maps.Map(document.getElementById(mapId), mapSettings);
+                var markerOptions = {
+                    position: center,
+                    map:      map,
+                    icon:     'https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|EA5156'
+                };
+
+                if (mode === 'show') {
+
+                } else if (mode === 'edit') {
+                    markerOptions['draggable'] = true;
+                }
+
+                var marker         = new google.maps.Marker(markerOptions);
+                var box            = $(marker.map.getDiv()).parents('.box');
+                var latitudeInput  = box.find('[name*=\'latitude\'], [name*=\'Latitude\']');
+                var longitudeInput = box.find('[name*=\'longitude\'], [name*=\'Longitude\']');
+                var radiusInput    = box.find('[name*=\'radiusInM\'], [name*=\'RadiusInM\']');
+                var radiusCircle   = null;
+
+                radiusCircle = new google.maps.Circle(
+                    {
+                        strokeColor:   '#EA5156',
+                        strokeOpacity: 0.8,
+                        strokeWeight:  2,
+                        fillColor:     '#EA5156',
+                        fillOpacity:   0.35,
+                        map:           map,
+                        center:        center,
+                        radius:        radiusInM
+                    }
+                );
+
+                latitudeInput.add(longitudeInput).add(radiusInput).change(
+                    function () {
+                        var latitude  = parseFloat(latitudeInput.val());
+                        var longitude = parseFloat(longitudeInput.val());
+
+                        if (latitude && longitude) {
+                            var newCenter = {
+                                lat: latitude,
+                                lng: longitude
+                            };
+
+                            var newRadius = 0;
+
+                            if (radiusInput.length > 0) {
+                                newRadius = parseInt(radiusInput.val(), 10);
+                            }
+
+                            marker.setPosition(newCenter);
+                            map.setCenter(newCenter);
+
+                            if (radiusCircle) {
+                                radiusCircle.setRadius(newRadius);
+                                radiusCircle.setCenter(newCenter);
+                            }
+                        }
+                    }
+                );
+
+                if (mode === 'edit') {
+                    google.maps.event.addListener(
+                        marker, 'dragend', function () {
+                            var latitude  = marker.position.lat();
+                            var longitude = marker.position.lng();
+                            var box       = $(marker.map.getDiv()).parents('.box');
+
+                            latitudeInput.val(latitude);
+                            longitudeInput.val(longitude);
+
+                            var newCenter = {
+                                lat: parseFloat(latitudeInput.val()),
+                                lng: parseFloat(longitudeInput.val())
+                            };
+
+                            map.setCenter(newCenter);
+
+                            if (radiusCircle) {
+                                radiusCircle.setCenter(newCenter);
+                            }
+                        }
+                    );
+                }
+            }
+        );
+    };
+
+    $(document).ready(function () {
+        documentReady = true;
+
+        if (!mapInitialized) {
+            initMap();
+        }
+
+        $('.nav-tabs a').click(function () {
+            window.setTimeout(initMap, 500);
+        });
+    });
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap"
+        async defer>
+
+</script>

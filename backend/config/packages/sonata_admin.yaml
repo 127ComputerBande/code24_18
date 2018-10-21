@@ -1,0 +1,32 @@
+sonata_admin:
+    title: 'Entertrain'
+    dashboard:
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: Dataleft }
+        groups:
+            Data:
+                label:
+                label_catalogue: admin
+    options:
+        html5_validate: true
+        sort_admins:    true
+        title_mode:     single_text
+    show_mosaic_button:   false
+    templates:
+        edit:           Admin/edit.html.twig
+        list:           Admin/list.html.twig
+        show:           Admin/show.html.twig
+        layout:         Admin/standard_layout.html.twig
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+services:
+    form.extension.choice:
+        class: 'App\Form\Extension\ChoiceTypeExtension'
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: 'form.type_extension', extended_type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType' }

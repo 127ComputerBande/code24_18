@@ -1,0 +1,8 @@
+{% block field %}
+    {% trans_default_domain 'admin' %}
+    <td class="sonata-ba-list-field sonata-ba-list-field-text">
+        {% if value is not empty %}
+            {{ value | date('d.m.Y H:i', 'Europe/Berlin') }}
+        {% endif %}
+    </td>
+{% endblock %}

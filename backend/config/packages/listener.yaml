@@ -1,0 +1,28 @@
+services:
+    empty_cells.listener:
+        class: App\Listener\EmptyAdminTableCellListener
+        arguments:
+            - '@translator'
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    sonata.menu_listener:
+        class: App\Listener\MenuBuilderListener
+        arguments:
+            - '%kernel.environment%'
+            - '@translator'
+        tags:
+            - { name: kernel.event_listener, event: sonata.admin.event.configure.menu.sidebar, method: createMainMenu }
+
+    jwt_success.listener:
+        class: App\Listener\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    jwt_decoded.listener:
+        class: App\Listener\JWTDecodedListener
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '%log_user_action%'
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_decoded, method: onJWTDecoded }

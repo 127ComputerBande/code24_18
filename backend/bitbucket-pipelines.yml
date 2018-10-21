@@ -1,0 +1,93 @@
+image: php:7.1-fpm
+
+pipelines:
+    branches:
+        develop:
+            -   step:
+                    caches:
+                        - composer
+                        - node
+                    services:
+                        - database
+                    script:
+                        - echo '{"registry":"https://registry.bower.io/"}' > /root/.bowerrc # temporary bower fix
+                        - apt-get update && apt-get install -y unzip wget gnupg git
+                        - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+                        - apt-get install -y nodejs
+                        - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+                        - composer -V
+
+                        # Build less and js
+                        - npm install --unsafe-perm
+                        - npm install -g bower gulp
+                        - bower -V --allow-root install
+                        - gulp build
+
+                        # Setup Project
+                        - sh .pipelines/composer-install.sh
+
+                        # Copy staging configuration
+                        - echo "Copying staging configuration"
+                        - cp -R ./_staging/* ./
+                        - cp -R ./_staging/.env ./.env
+
+                        # Copy cronjob configuration
+                        - echo "Copying cronjob configuration"
+                        - cp .cronjob/cronjobs.config .ebextensions/30-crontabs.config
+
+                        # Deploy
+                        - sh .pipelines/prepare-deploy.sh
+                        - sh .pipelines/aws-credentials-create.sh
+                        - sh .pipelines/deployment-status-check.sh staging
+                        - python .pipelines/beanstalk-deploy.py staging
+
+                        - echo "App has been successfully deployed on staging!"
+        master:
+            -   step:
+                    caches:
+                        - composer
+                        - pip
+                    services:
+                        - database
+                    script:
+                        - echo '{"registry":"https://registry.bower.io/"}' > /root/.bowerrc # temporary bower fix
+                        - apt-get update && apt-get install -y unzip wget gnupg git
+                        - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+                        - apt-get install -y nodejs
+                        - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+                        - composer -V
+
+                        # Build less and js
+                        - npm install --unsafe-perm
+                        - npm install -g bower gulp
+                        - bower -V --allow-root install
+                        - gulp build
+
+                        # Setup Project
+                        - sh .pipelines/composer-install.sh
+
+                        # Copy production configuration
+                        - echo "Copying production configuration"
+                        - cp -R app/_production/* app/config
+
+                        # Copy cronjob configuration
+                        - echo "Copying cronjob configuration"
+                        - cp .cronjob/cronjobs.config .ebextensions/30-crontabs.config
+
+                        # Deploy
+                        - sh .pipelines/prepare-deploy.sh
+                        - sh .pipelines/aws-credentials-create.sh
+                        - sh .pipelines/deployment-status-check.sh production
+                        - python .pipelines/beanstalk-deploy.py production
+
+                        - echo "App has been successfully deployed on production!"
+
+definitions:
+    services:
+        database:
+            image: mysql
+            environment:
+                MYSQL_USER:          test
+                MYSQL_DATABASE:      test
+                MYSQL_PASSWORD:      test
+                MYSQL_ROOT_PASSWORD: test

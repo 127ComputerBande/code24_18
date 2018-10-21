@@ -1,0 +1,39 @@
+{% extends '@SonataAdmin/CRUD/base_show.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include '/Admin/map.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style type="text/css">
+        .sonata-ba-view-container th
+        {
+            width: 240px;
+        }
+
+        .app-image-preview-show img
+        {
+            max-width:  400px;
+            max-height: 300px;
+        }
+
+        .app-color-preview-show
+        {
+            height:        20px;
+            width:         20px;
+            display:       inline-block;
+            float:         right;
+            border-radius: 3px;
+            border:        1px solid #d2d6de;
+        }
+
+        .embedded-map-show
+        {
+            height: 400px;
+        }
+    </style>
+{% endblock %}

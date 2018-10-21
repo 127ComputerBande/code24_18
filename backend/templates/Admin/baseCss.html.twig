@@ -1,0 +1,58 @@
+<style type="text/css">
+    {% set sidebarWidth = '300px' %}
+
+    .sidebar-menu .treeview-menu
+    {
+        display: block !important;
+    }
+
+    .sidebar .lulububu-logo
+    {
+        width:      50%;
+        margin:     20px auto 0 auto;
+        min-height: 120px;
+        position:   relative;
+        display:    block;
+    }
+
+    .sidebar .lulububu-logo img
+    {
+        position: absolute;
+        top:      0;
+        left:     0;
+        width:    100%;
+        z-index:  1337;
+    }
+
+    .sidebar .lulububu-logo span
+    {
+        position:    absolute;
+        top:         50px;
+        left:        50%;
+        font-size:   40px;
+        margin-left: -20px;
+        z-index:     1336;
+        transition:  top 5.0s ease;
+
+    }
+
+    .sidebar .lulububu-logo:hover span
+    {
+        top: 150px;
+
+    }
+
+    .main-sidebar,
+    .left-side,
+    .main-header .logo
+    {
+        width: {{ sidebarWidth }} !important;
+    }
+
+    .content-wrapper,
+    .right-side,
+    .main-footer
+    {
+        margin-left: {{ sidebarWidth }} !important;
+    }
+</style>

@@ -1,0 +1,7 @@
+services:
+    app.serializer.builder.user:
+        decorates: api_platform.serializer.context_builder
+        class: App\Serializer\UserSerializer
+        arguments:
+            - '@app.serializer.builder.user.inner'
+            - '@security.token_storage'
