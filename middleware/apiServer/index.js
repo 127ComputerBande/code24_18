@@ -18,10 +18,14 @@ const getCategories = async () => {
 };
 
 const transformCategories = (serverCategories = [], itemCategories = []) =>
-  serverCategories.filter(cat => itemCategories.includes(cat.name)).map(cat => cat.id);
+  serverCategories
+    .filter(cat => itemCategories.findIndex(innerCat => innerCat.name.toLowerCase() === cat.name.toLowerCase()))
+    .map(cat => cat.id);
 
-const sendToBackend = async items => {
+const sendToBackend = async (items, caller) => {
   const categories = await getCategories();
+
+  console.log(caller, 'number of items', items.length);
 
   await Promise.map(items, async item => {
     const toServerItem = { ...item, categories: transformCategories(categories, item.categories) };
@@ -35,7 +39,7 @@ const sendToBackend = async items => {
 
       console.log(res.status);
     } catch (error) {
-      console.log(error.response.status, error.response.status === 400 ? error.response.data : undefined);
+      console.log(error.response ? error.response.status : error);
     }
   });
 };

@@ -6,6 +6,9 @@ const apiServer = require('../apiServer');
 const service = google.youtube('v3');
 const API_KEY = '';
 
+let count = 0;
+const limit = 1000;
+
 const getVideos = async pageToken => {
   const res = await service.videos.list({
     auth: API_KEY,
@@ -28,10 +31,13 @@ const getVideos = async pageToken => {
       description: i.snippet.description,
       thumbnail: i.snippet.thumbnails.high.url,
     })),
+    'YOUTUBE',
   );
 
+  count += res.data.items.length;
+
   // TODO: Remove!!
-  // if (res.data.nextPageToken) await getVideos(res.data.nextPageToken)
+  if (count <= limit && res.data.nextPageToken) await getVideos(res.data.nextPageToken);
 };
 
 module.exports = { getVideos };
