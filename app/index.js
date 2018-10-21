@@ -13,6 +13,7 @@ import StagingApiAlertText    from './app/components/StagingApiAlertText';
 import { Text }               from 'react-native';
 import { YellowBox }          from 'react-native';
 import './app/language/Language';
+import { NfcActions }         from './app/store/actions/nfc';
 
 // Disables font scaling. Will be reactivated if needed
 Text.defaultProps.allowFontScaling = false;
@@ -22,7 +23,8 @@ YellowBox.ignoreWarnings([
     'Warning: componentWillMount is deprecated',
     'Warning: componentWillReceiveProps is deprecated',
     'Warning: componentWillUpdate is deprecated',
-    'Module RCTImageLoader requires'
+    'Module RCTImageLoader requires',
+    'Sending `NfcManagerSessionClosed`'
 ]);
 
 const { persistor, store } = configureStore({});
@@ -59,6 +61,12 @@ class App extends React.Component {
 
     componentDidMount () {
         AppState.addEventListener('change', this.handleAppStateChange);
+        AppRegistry.registerComponent('NfcManagerDev', () => App);
+
+        store.dispatch(
+            NfcActions.scanTag()
+        );
+
         SplashScreen.hide();
     }
 

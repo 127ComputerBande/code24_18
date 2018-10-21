@@ -17,7 +17,8 @@ import TabView                  from '../components/TabView';
 import Button                   from '../components/Button';
 import Separator                from '../components/Separator';
 import Colors                   from '../styles/Colors';
-import CircularSlider           from '../components/CircularSlider'
+import CircularSlider           from '../components/CircularSlider';
+import _                        from 'lodash';
 
 @connect(
     (state) => (
@@ -48,8 +49,11 @@ class StartScreen extends React.Component {
     constructor (props) {
         super(props);
 
+        let tagScanned = _.get(props, 'navigation.state.params.tagScanned', false);
+
         this.state = {
-            time: 270
+            time:         15,
+            initialIndex: tagScanned ? 0 : 1
         };
     }
 
@@ -99,7 +103,7 @@ class StartScreen extends React.Component {
                 <View style={styles.tabViewContainer}>
                     <TabView
                         activeButtonStyle={{ backgroundColor: Colors.purple }}
-                        initialIndex={1}
+                        initialTab={this.state.initialTab}
                         tabs={
                             [
                                 {

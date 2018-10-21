@@ -1,7 +1,6 @@
 import I18n                    from 'react-native-i18n'
 import Locale                  from '../../helper/Locale';
 import { LoadingOverlayTypes } from '../actions/loading';
-import { UserTypes }           from '../actions/user';
 
 I18n.locale = Locale.getLocale();
 
@@ -13,8 +12,6 @@ const initialState = {
 
 const LoadingReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UserTypes.LOGIN_SUCCESS:
-        case UserTypes.LOGIN_FAILED:
         case LoadingOverlayTypes.LOADING_OVERLAY_HIDE:
             let newState = { ...state };
 
@@ -29,7 +26,6 @@ const LoadingReducer = (state = initialState, action) => {
 
             return newState;
 
-        case UserTypes.LOGIN:
         case LoadingOverlayTypes.LOADING_OVERLAY_SHOW:
             return {
                 // @formatter:off

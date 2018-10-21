@@ -2,31 +2,24 @@ import { all }               from 'redux-saga/effects';
 import { put }               from 'redux-saga/effects';
 import { takeLatest }        from 'redux-saga/effects';
 // Types
-import { UserTypes }         from '../actions/user';
+import { NfcTypes }          from '../actions/nfc';
 // Actions
 import { NavigationActions } from 'react-navigation';
 import { VideoActions }      from '../actions/video';
 // Sagas
-import UserSagas             from './user';
 import VideoSagas            from './video';
-import { VideoTypes }        from '../actions/video';
+import NfcSagas              from '../sagas/nfc';
 
 const root = function* () {
     yield all([
         // @formatter:off
-        // LOGIN
-        takeLatest(UserTypes.LOGIN,               UserSagas.login),
-        takeLatest(UserTypes.LOGIN_SUCCESS,       UserSagas.loginSuccess),
-        takeLatest(UserTypes.LOGOUT,              UserSagas.logout),
-        takeLatest(UserTypes.UPDATE_USER,         UserSagas.updateUser),
-        takeLatest(UserTypes.UPDATE_USER_SUCCESS, UserSagas.updateUserSuccess),
-        takeLatest(VideoTypes.FETCH_VIDEOS,       VideoSagas.fetchVideos),
+        takeLatest(NfcTypes.NFC_SCAN_TAG,    NfcSagas.scanTag),
+        takeLatest(NfcTypes.NFC_TAG_SCANNED, NfcSagas.tagScanned)
         // @formatter:on
     ]);
 };
 
 const startUp = function* () {
-    yield put(VideoActions.fetchVideos());
 };
 
 const preLoading = function* () {

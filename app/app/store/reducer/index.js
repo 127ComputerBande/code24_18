@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 import Loading             from './loading';
 import Video               from './video';
 import Navigation          from './navigation';
-import User                from './user';
+import NFC                 from './nfc';
 
 const AppReducer = combineReducers({
     Loading,
     Video,
     Navigation,
-    User,
+    NFC
 });
 
 export default AppReducer;

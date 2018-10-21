@@ -32,17 +32,17 @@ class Button extends React.Component {
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        borderRadius:    60,
-        height:          60,
+        borderRadius:    50,
+        height:          50,
         alignContent:    'center',
         justifyContent:  'center',
-        width:           150,
+        width:           170,
         backgroundColor: Colors.purple,
     },
     label:           {
         color:     'white',
         textAlign: 'center',
-
+        fontSize:  18
     }
 });
 

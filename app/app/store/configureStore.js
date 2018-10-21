@@ -13,7 +13,8 @@ const persistConfig = {
     storage,
     blacklist: [
         'Navigation',
-        'Loading'
+        'Loading',
+        'NFC'
     ]
 };
 

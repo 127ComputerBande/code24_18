@@ -25,7 +25,7 @@ class TabView extends React.Component {
         super(props);
 
         this.state = {
-            activeIndex: props.initialIndex
+            activeIndex: props.initialTab
         };
     }
 
@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
 });
 
 TabView.defaultProps = {
-    style:        {},
-    tabs:         [],
-    initialIndex: 0
+    style:      {},
+    tabs:       [],
+    initialTab: 0
 };
 
 TabView.propTypes = {
-    tabs:         PropTypes.arrayOf(
+    tabs:       PropTypes.arrayOf(
         PropTypes.shape(
             {
                 title:             PropTypes.string.required,
@@ -127,7 +127,7 @@ TabView.propTypes = {
                 activeLabelStyle:  PropTypes.object
             }
         )),
-    initialIndex: PropTypes.number
+    initialTab: PropTypes.number
 };
 
 module.exports = TabView;

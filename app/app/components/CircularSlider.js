@@ -67,17 +67,20 @@ class CircularSlider extends Component {
                 locationY - this.props.height - (
                     this.props.height / 2
                 )
-            ))
+            ) / 360 * 60)
     }
 
     render () {
-        const { width, height, value, meterColor, pinColor, onValueChange } = this.props
-            , { cx, cy, r }                                                 = this.state
-            , startCoord                                                    = this.polarToCartesian(0)
-            , endCoord                                                      = this.polarToCartesian(value)
+        const { width, height, value, meterColor, pinColor, onValueChange } = this.props;
+        const { cx, cy, r }                                                 = this.state;
+        const startCoord                                                    = this.polarToCartesian(0);
+        let radius                                                          = (
+            value / 60 * 360
+        ).toFixed(0);
+        const endCoord                                                      = this.polarToCartesian(radius);
 
         let minutes = (
-            value / 360 * 60
+            value
         ).toFixed(0);
 
         return (
@@ -89,14 +92,16 @@ class CircularSlider extends Component {
                         strokeWidth={15}
                         fill='none' />
                 <Path stroke={meterColor} strokeLinecap="round" strokeWidth={20} fill='none'
-                      d={`M${startCoord.x} ${startCoord.y} A ${r} ${r} 0 ${value
+                      d={`M${startCoord.x} ${startCoord.y} A ${r} ${r} 0 ${radius
                       > 180 ? 1 : 0} 1 ${endCoord.x} ${endCoord.y}`} />
                 <G x={endCoord.x - 7.5} y={endCoord.y - 7.5}>
                     <Circle cx={7.5} cy={7.5} r={15} fill={pinColor} {...this._panResponder.panHandlers} />
                 </G>
                 <Text key={value + ''}
                       x={width / 2}
-                      y={110}
+                      y={100}
+                      fontStyle={'italic'}
+                      fontWeight={'bold'}
                       fontSize={40}
                       fill={'#000'}
                       textAnchor="middle">
@@ -104,7 +109,7 @@ class CircularSlider extends Component {
                 </Text>
                 <Text key={'minutes'}
                       x={width / 2}
-                      y={150}
+                      y={140}
                       fontSize={40}
                       fill={'#000'}
                       textAnchor="middle">
