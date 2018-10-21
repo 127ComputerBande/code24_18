@@ -33,15 +33,16 @@ const createInstance = (host, apiPath) => {
 
 const Api = createInstance(ApiUrls.BACKEND_URL, '/');
 
-const fetchVideos = () => {
+const fetchVideosByDuration = (duration) => {
+    duration = duration === 900 ? 901 : duration;
     return Api.get(
-        `${ApiUrls.VIDEO_BASE_URI}`
+        `${ApiUrls.VIDEOS_BY_DURATION_BASE_URI}/${parseInt(duration, 10)}`
     );
 };
 
 export {
     Api,
 
-    fetchVideos
+    fetchVideosByDuration
 };
 

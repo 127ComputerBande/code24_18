@@ -1,6 +1,7 @@
 import I18n                    from 'react-native-i18n'
 import Locale                  from '../../helper/Locale';
 import { LoadingOverlayTypes } from '../actions/loading';
+import { VideoTypes }          from '../actions/video';
 
 I18n.locale = Locale.getLocale();
 
@@ -12,6 +13,8 @@ const initialState = {
 
 const LoadingReducer = (state = initialState, action) => {
     switch (action.type) {
+        case VideoTypes.FETCH_VIDEOS_SUCCESS:
+        case VideoTypes.FETCH_VIDEOS_FAILURE:
         case LoadingOverlayTypes.LOADING_OVERLAY_HIDE:
             let newState = { ...state };
 
@@ -26,6 +29,7 @@ const LoadingReducer = (state = initialState, action) => {
 
             return newState;
 
+        case VideoTypes.FETCH_VIDEOS_BY_DURATION:
         case LoadingOverlayTypes.LOADING_OVERLAY_SHOW:
             return {
                 // @formatter:off

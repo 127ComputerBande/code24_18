@@ -9,12 +9,14 @@ import { VideoActions }      from '../actions/video';
 // Sagas
 import VideoSagas            from './video';
 import NfcSagas              from '../sagas/nfc';
+import { VideoTypes }        from '../actions/video';
 
 const root = function* () {
     yield all([
         // @formatter:off
         takeLatest(NfcTypes.NFC_SCAN_TAG,    NfcSagas.scanTag),
-        takeLatest(NfcTypes.NFC_TAG_SCANNED, NfcSagas.tagScanned)
+        takeLatest(NfcTypes.NFC_TAG_SCANNED, NfcSagas.tagScanned),
+        takeLatest(VideoTypes.FETCH_VIDEOS_BY_DURATION, VideoSagas.fetchVideosByDuration)
         // @formatter:on
     ]);
 };
