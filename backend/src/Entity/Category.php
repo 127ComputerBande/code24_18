@@ -55,7 +55,8 @@ class Category
      * @ORM\GeneratedValue(strategy="UUID")
      *
      * @Groups({
-     *     "category_read"
+     *     "category_read",
+     *     "category_write",
      * })
      */
     protected $id;
@@ -67,6 +68,7 @@ class Category
      *
      * @Groups({
      *     "category_read",
+     *     "category_write",
      * })
      */
     protected $name;

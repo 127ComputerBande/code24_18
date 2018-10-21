@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -54,7 +55,8 @@ class Stop
      * @ORM\GeneratedValue(strategy="UUID")
      *
      * @Groups({
-     *     "stop_read"
+     *     "stop_read",
+     *     "stop_write",
      * })
      */
     protected $id;
@@ -66,6 +68,7 @@ class Stop
      *
      * @Groups({
      *     "stop_read",
+     *     "stop_write",
      * })
      */
     protected $name;
@@ -77,17 +80,19 @@ class Stop
      *
      * @Groups({
      *     "stop_read",
+     *     "stop_write",
      * })
      */
     protected $location;
 
     /**
-     * @var StopLine
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="StopLine", mappedBy="stop")
      *
      * @Groups({
-     *     "stopline_read",
+     *     "stop_read",
+     *     "stop_write",
      * })
      */
     protected $stopline;
@@ -148,6 +153,25 @@ class Stop
     public function setLocation(GeoLocation $location): Stop
     {
         $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getStopline(): ?Collection
+    {
+        return $this->stopline;
+    }
+
+    /**
+     * @param Collection $stopline
+     * @return Stop
+     */
+    public function setStopline(Collection $stopline): Stop
+    {
+        $this->stopline = $stopline;
 
         return $this;
     }

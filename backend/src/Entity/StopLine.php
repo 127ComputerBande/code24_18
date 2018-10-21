@@ -54,7 +54,8 @@ class StopLine
      * @ORM\GeneratedValue(strategy="UUID")
      *
      * @Groups({
-     *     "stopline_read"
+     *     "stopline_read",
+     *     "stopline_write",
      * })
      */
     protected $id;
@@ -68,6 +69,7 @@ class StopLine
      *
      * @Groups({
      *     "stopline_read",
+     *     "stopline_write",
      * })
      */
     protected $stop;
@@ -81,6 +83,7 @@ class StopLine
      *
      * @Groups({
      *     "stopline_read",
+     *     "stopline_write",
      * })
      */
     protected $line;
@@ -92,6 +95,7 @@ class StopLine
      *
      * @Groups({
      *     "stopline_read",
+     *     "stopline_write",
      * })
      */
     protected $position;
@@ -103,6 +107,7 @@ class StopLine
      *
      * @Groups({
      *     "stopline_read",
+     *     "stopline_write",
      * })
      */
     protected $durationToNext;

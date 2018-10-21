@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -54,7 +55,8 @@ class Line
      * @ORM\GeneratedValue(strategy="UUID")
      *
      * @Groups({
-     *     "line_read"
+     *     "line_read",
+     *     "line_write",
      * })
      */
     protected $id;
@@ -66,17 +68,19 @@ class Line
      *
      * @Groups({
      *     "line_read",
+     *     "line_write",
      * })
      */
     protected $name;
 
     /**
-     * @var StopLine
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="StopLine", mappedBy="line")
      *
      * @Groups({
-     *     "stopline_read",
+     *     "line_read",
+     *     "line_write",
      * })
      */
     protected $stopline;
@@ -123,18 +127,18 @@ class Line
     }
 
     /**
-     * @return StopLine
+     * @return Collection
      */
-    public function getStopline(): ?StopLine
+    public function getStopline(): ?Collection
     {
         return $this->stopline;
     }
 
     /**
-     * @param StopLine $stopline
+     * @param Collection $stopline
      * @return Line
      */
-    public function setStopline(StopLine $stopline): Line
+    public function setStopline(Collection $stopline): Line
     {
         $this->stopline = $stopline;
 

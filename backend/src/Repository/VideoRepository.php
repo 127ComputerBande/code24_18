@@ -28,6 +28,7 @@ class VideoRepository extends EntityRepository
                 ->where('v.duration <= :duration')
                 ->orderBy('v.priority', 'ASC')
                 ->orderBy('v.duration', 'DESC')
+                ->setMaxResults(50)
                 ->setParameter('duration', $duration)
             ;
 

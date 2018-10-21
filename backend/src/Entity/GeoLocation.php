@@ -82,17 +82,34 @@ class GeoLocation
     protected $longitude;
 
     /**
+     * @var String
+     *
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Groups({
+     *     "geolocation_read",
+     * })
+     */
+    protected $name;
+
+    /**
      * @return string
      */
     public function __toString()
     {
-        return $this->getId();
+        $name = $this->getName();
+
+        if ($name) {
+            return $name;
+        }
+
+        return '';
     }
 
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -131,6 +148,25 @@ class GeoLocation
     public function setLongitude(float $longitude): GeoLocation
     {
         $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getName(): ?String
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param String $name
+     * @return GeoLocation
+     */
+    public function setName(String $name): GeoLocation
+    {
+        $this->name = $name;
 
         return $this;
     }

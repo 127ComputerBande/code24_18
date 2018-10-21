@@ -34,6 +34,7 @@ class GeoLocationAdmin extends BaseAdmin
     {
         // @formatter:off
         $datagridMapper
+            ->add('name')
             ->add('latitude')
             ->add('longitude')
         ;
@@ -47,6 +48,7 @@ class GeoLocationAdmin extends BaseAdmin
     {
         // @formatter:off
         $listMapper
+            ->add('name')
             ->add('latitude')
             ->add('longitude')
         ;
@@ -62,6 +64,7 @@ class GeoLocationAdmin extends BaseAdmin
     {
         // @formatter:off
         $formMapper
+            ->add('name')
             ->add('latitude')
             ->add('longitude')
         ;
@@ -75,6 +78,7 @@ class GeoLocationAdmin extends BaseAdmin
     {
         // @formatter:off
         $showMapper
+            ->add('name')
             ->add('latitude')
             ->add('longitude')
         ;

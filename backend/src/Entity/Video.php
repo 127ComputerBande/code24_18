@@ -299,18 +299,18 @@ class Video
     }
 
     /**
-     * @return Image
+     * @return String
      */
-    public function getThumbnail(): ?Image
+    public function getThumbnail(): ?String
     {
         return $this->thumbnail;
     }
 
     /**
-     * @param Image $thumbnail
+     * @param String $thumbnail
      * @return Video
      */
-    public function setThumbnail(?Image $thumbnail): Video
+    public function setThumbnail(String $thumbnail): Video
     {
         $this->thumbnail = $thumbnail;
 
