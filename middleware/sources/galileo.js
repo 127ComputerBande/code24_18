@@ -27,7 +27,7 @@ const getGalieo = async () => {
     const links = $('section.element a.clickable-box-link')
       .map(function(i, el) {
         return {
-          url: $(this).attr('href'),
+          url: `https://www.prosieben.de/${$(this).attr('href')}`,
           title: $(this)
             .find('.teaser-headline')
             .text(),
@@ -37,6 +37,7 @@ const getGalieo = async () => {
           duration: $(this)
             .find('.teaser-lineB')
             .text(),
+          categories: ['Wissen', 'Information', 'Galileo'],
         };
       })
       .get();

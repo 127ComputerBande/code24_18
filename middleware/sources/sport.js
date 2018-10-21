@@ -28,7 +28,7 @@ const getPage = async (api, page = 1) => {
         source: api.name,
         duration: i.seconds,
         priority: 100,
-        categories: ['Sport'],
+        categories: i.tags.Sportart ? ['Sport', ...i.tags.Sportart] : ['Sport'],
         title: i.title,
         description: i.teaser,
         thumbnail: i.images[0],
