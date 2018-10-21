@@ -18,7 +18,9 @@ const getCategories = async () => {
 };
 
 const transformCategories = (serverCategories = [], itemCategories = []) =>
-  serverCategories.filter(cat => itemCategories.includes(cat.name)).map(cat => cat.id);
+  serverCategories
+    .filter(cat => itemCategories.findIndex(innerCat => innerCat.name.toLowerCase() === cat.name.toLowerCase()))
+    .map(cat => cat.id);
 
 const sendToBackend = async (items, caller) => {
   const categories = await getCategories();
