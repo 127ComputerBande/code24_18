@@ -1,0 +1,33 @@
+knp_gaufrette:
+    stream_wrapper:
+        filesystems: [ media_fs ]
+
+    adapters:
+        media_local:
+            local:
+                directory: '%kernel.root_dir%/../public/uploads/images'
+
+        media_s3:
+            aws_s3:
+                service_id: 'app.aws_s3.client'
+                bucket_name: '%aws_s3_bucket%'
+                options:
+                    directory: 'media'
+
+        files_local:
+            local:
+                directory: '%kernel.root_dir%/../public/uploads/files'
+
+        files_s3:
+            aws_s3:
+                service_id: 'app.aws_s3.client'
+                bucket_name: '%aws_s3_bucket%'
+                options:
+                    directory: 'files'
+
+    filesystems:
+        files_fs:
+            adapter: 'files_%knp_adapter%'
+
+        media_fs:
+            adapter: 'media_%knp_adapter%'

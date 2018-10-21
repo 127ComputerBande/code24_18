@@ -1,0 +1,8 @@
+services:
+    data_fixtures.provider.upload:
+        class: App\Fixtures\ORM\UploadFaker
+        tags: [ { name: nelmio_alice.faker.provider } ]
+
+    alice.processor.file_upload:
+        class: App\Fixtures\Processor\FileUploadProcessor
+        tags: [ { name: fidry_alice_data_fixtures.processor } ]

@@ -1,0 +1,49 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include '/Admin/baseCss.html.twig' %}
+{% endblock %}
+
+{% block sonata_sidebar_search %}{% endblock sonata_sidebar_search %}
+
+{% block sonata_nav %}
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="navbar-left">
+            {% block sonata_breadcrumb %}
+                {{ parent() }}
+            {% endblock sonata_breadcrumb %}
+        </div>
+
+        {% block sonata_top_nav_menu %}
+            {{ parent() }}
+        {% endblock %}
+    </nav>
+{% endblock sonata_nav %}
+
+{% block side_bar_after_nav_content %}
+    <a href="https://lulububu.de" target="_blank" class="lulububu-logo">
+        <span aria-hidden="true">😎</span>
+        <img src="{{ asset('images/logo-black.png') }}">
+    </a>
+{% endblock %}
+
+{% block sonata_header_noscript_warning %}
+    {% set devEnvironment     = kernel_environment == 'dev' %}
+    {% set stagingEnvironment = 'staging.' in app.request.getSchemeAndHttpHost() %}
+
+    {% if devEnvironment %}
+        {% set environmentWarning = 'dev_warning' %}
+    {% elseif stagingEnvironment %}
+        {% set environmentWarning = 'staging_warning' %}
+    {% endif %}
+
+    {% if environmentWarning is defined %}
+        <div class="noscript-warning">
+            {{ environmentWarning|trans({}, 'admin') }}
+        </div>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,11 @@
+services:
+    app.mailer.default:
+        class: App\Mailer\DefaultMailer
+        public: true
+        arguments:
+            - '@swiftmailer.mailer'
+            - '@twig'
+            - '@css_to_inline_email_converter'
+            - '@swiftmailer.transport.real'
+            - '%default_sender_mail%'
+            - '%mail_asset_url%'

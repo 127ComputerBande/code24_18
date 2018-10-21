@@ -1,0 +1,6 @@
+knp_doctrine_behaviors:
+    blameable:      true
+    timestampable:  true
+
+parameters:
+    knp.doctrine_behaviors.blameable_subscriber.user_entity: App\Entity\User

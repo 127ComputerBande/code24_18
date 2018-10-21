@@ -1,0 +1,22 @@
+{
+  "name": "symfony-skeleton",
+  "authors": [
+    "Thomas Kekeisen <bitbucket@tk.ca.kekeisen.it>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.20.1",
+    "bootstrap": "3",
+    "components-font-awesome": "^5.0.6"
+  }
+}

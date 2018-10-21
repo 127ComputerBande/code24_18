@@ -1,0 +1,8 @@
+{% block field %}
+    {% trans_default_domain 'admin' %}
+    <td class="sonata-ba-list-field sonata-ba-list-field-text app-image-preview-list">
+        <a href="{{ object.getImagePath() }}" target="_blank">
+            <img src="{{ object.getImagePath() }}" alt="" />
+        </a>
+    </td>
+{% endblock %}

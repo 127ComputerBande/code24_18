@@ -1,0 +1,79 @@
+security:
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        gettoken:
+            pattern:  ^/api/tokens
+            stateless: true
+            gfreeau_get_jwt:
+                # this is the default config
+                username_parameter: email     # If you change this setting, please also change the API description in src/Controller/TokenController.php
+                password_parameter: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern:   ^/api/.*?
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
+        admin:
+            pattern:            /admin(.*)
+            context:            user
+            form_login:
+                provider:            fos_userbundle
+                login_path:          /admin/login
+                use_forward:         false
+                check_path:          /admin/login_check
+                failure_path:        /admin/login
+                default_target_path: /admin/dashboard
+            logout:
+                path:           /admin/logout
+                target:         /admin/login
+            anonymous:          true
+
+        main:
+            pattern:             .*
+            context:             user
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /admin/login
+                use_forward:    false
+                check_path:     /login_check
+                failure_path:   null
+            logout:             true
+            anonymous:          true
+
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+
+        # Admin login page needs to be accessed without credential
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+
+        # Api
+        - { path: ^/api$,       roles: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        #- { path: ^/api/doc,    roles: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/api/tokens, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: ['OPTIONS', 'POST'],  }
+        - { path: ^/api/users,  roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: ['POST'],             }

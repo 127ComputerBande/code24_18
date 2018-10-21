@@ -1,0 +1,15 @@
+{% block map_widget %}
+    {% spaceless %}
+        {% if value.latitude is defined %}
+            {% set randomId = 'map' ~ random() %}
+            <div class="google-map embedded-map-edit"
+                 id="{{ randomId }}"
+                 data-latitude="{{ value.latitude }}"
+                 data-longitude="{{ value.longitude }}"
+                 data-radius="{{ value.radiusInM }}"
+                 data-mode="edit"
+            >
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

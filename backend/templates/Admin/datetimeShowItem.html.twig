@@ -1,0 +1,7 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% if value is not empty %}
+        {{ value | date('d.m.Y H:i', 'Europe/Berlin') }}
+    {% endif %}
+{% endblock %}

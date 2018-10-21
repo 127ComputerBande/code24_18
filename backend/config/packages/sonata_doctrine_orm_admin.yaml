@@ -1,0 +1,8 @@
+sonata_doctrine_orm_admin:
+    templates:
+        types:
+            show:
+                App\Form\Type\ImageType: Admin/imageShow.html.twig
+                App\Form\Type\MapType:   Admin/mapShow.html.twig
+            list:
+                App\Form\Type\ImageType: Admin/imageList.html.twig

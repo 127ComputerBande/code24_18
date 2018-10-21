@@ -1,0 +1,322 @@
+{% set bodyBackgroundColor    = '#ffffff' %}
+{% set contentBackgroundColor = '#eeeeee' %}
+{% set contentTextColor       = '#191919' %}
+{% set contentWidth           = '700' %}
+{% set defaultFontFamily      = 'Arial, sans-serif' %}
+{% set dinCondensedFontFamily = 'Arial, sans-serif' %}
+{% set footerBackgroundColor  = '#cccccc' %}
+{% set footerTextColor        = '#2f2f2f' %}
+{% set headerBackgroundColor  = 'transparent' %}
+{% set headerTextColor        = '#191919' %}
+
+{# We need this since the variables break the css autoformatting #}
+/* @formatter:off */
+
+img
+{
+    border:                 none;
+    -ms-interpolation-mode: bicubic;
+    max-width:              100%;
+}
+
+body
+{
+    font-family:                  {{ defaultFontFamily|raw }};
+    background-color:             {{ bodyBackgroundColor|raw }};
+    -webkit-font-smoothing:       antialiased;
+    font-size:                    14px;
+    line-height:                  1.4;
+    margin:                       0;
+    padding:                      0;
+    -ms-text-size-adjust:         100%;
+    -webkit-text-size-adjust:     100%;
+}
+
+table
+{
+    border-collapse:  separate;
+    mso-table-lspace: 0;
+    mso-table-rspace: 0;
+    width:            100%;
+}
+
+table td
+{
+    font-family:    {{ defaultFontFamily|raw }};
+    font-size:      17px;
+    vertical-align: top;
+}
+
+.body
+{
+    background-color: {{ bodyBackgroundColor|raw }};
+    color:            #404041;
+    width:            100%;
+}
+
+/*
+ * Set a max-width, and make it display as block so it will automatically stretch to that width,
+ * but will also shrink down on a phone or something
+ */
+.container
+{
+    display:   block;
+    margin:    0 auto !important;
+    /* makes it centered */
+    max-width: {{ contentWidth }}px;
+    padding:   10px;
+    width:     {{ contentWidth }}px;
+}
+
+/* This should also be a block element, so that it will fill 100% of the .container */
+.content
+{
+    box-sizing: border-box;
+    display:    block;
+    margin:     0 auto;
+    max-width:  {{ contentWidth }}px;
+    padding:    10px;
+}
+
+/* -------------------------------------
+  HEADER, FOOTER, MAIN
+------------------------------------- */
+.header
+{
+    background:    {{ headerBackgroundColor|raw }};
+    color:         {{ headerTextColor|raw }};
+    border-radius: 3px 3px 0 0;
+    width:         100%;
+    text-align:    center;
+}
+
+.header p
+{
+    font-weight: bold;
+    font-size:   36px;
+}
+
+.main
+{
+    background:    {{ contentBackgroundColor|raw }};
+    border-radius: 0 0 3px 3px;
+    width:         100%;
+    font-weight:   300 !important;
+}
+
+.main a
+{
+    color:           {{ contentTextColor|raw }};
+    text-decoration: underline;
+    font-weight:     300 !important;
+}
+
+.wrapper
+{
+    box-sizing:  border-box;
+    padding:     40px;
+    font-size:   14px;
+    font-weight: 300 !important;
+}
+
+.header .wrapper
+{
+    padding: 10px 20px 10px 20px;
+}
+
+.header-logos
+{
+    text-align: center;
+}
+
+.header-logos .small
+{
+    height: 50px;
+}
+
+.header-logos h3
+{
+    color:          {{ headerTextColor|raw }};
+    text-transform: uppercase;
+    font-size:      17pt;
+    line-height:    17pt;
+    font-weight:    bold;
+    margin:         0 auto;
+    max-width:      240px;
+    font-family:    {{ dinCondensedFontFamily|raw }};
+}
+
+.logo
+{
+    text-align: center;
+    margin-top: -50px;
+}
+
+.logo img
+{
+    max-width: 160px;
+}
+
+.logo td
+{
+    padding-bottom: 30px;
+}
+
+.footer
+{
+    clear:          both;
+    padding-top:    10px;
+    padding-bottom: 20px;
+    text-align:     center;
+    width:          100%;
+    background:     {{ footerBackgroundColor|raw }};
+    color:          {{ footerTextColor|raw }};
+    margin-top:     10px;
+}
+
+.footer td,
+.footer p,
+.footer span,
+.footer a
+{
+    color:      {{ footerTextColor|raw }};
+    font-size:  12px;
+    text-align: center;
+}
+
+.footer-text
+{
+    padding-left: 20px;
+    padding-top:  24px;
+    font-size:    12px !important;
+    line-height:  12pt;
+    font-weight:  300;
+    font-family:  {{ defaultFontFamily|raw }};
+}
+
+.footer-image
+{
+    width:        50px;
+    padding-left: 40px;
+    padding-top:  20px;
+}
+
+/* -------------------------------------
+  TYPOGRAPHY
+------------------------------------- */
+h1, h2, h3, h4
+{
+    color:         {{ contentTextColor|raw }};
+    font-family:   {{ defaultFontFamily|raw }};
+    font-weight:   400;
+    line-height:   1.4;
+    margin:        0;
+    margin-bottom: 30px;
+}
+
+h1
+{
+    font-size:      35px;
+    font-weight:    300;
+    text-align:     center;
+    text-transform: capitalize;
+}
+
+p, ul, ol
+{
+    font-family:   {{ defaultFontFamily|raw }};
+    font-size:     18px;
+    margin:        0;
+    margin-bottom: 15px;
+}
+
+p li, ul li, ol li
+{
+    list-style-position: inside;
+    margin-left:         5px;
+}
+
+a
+{
+    font-family:     {{ defaultFontFamily|raw }};
+    text-decoration: underline;
+    font-weight:     normal;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+p.headline
+{
+    font-size:      16pt;
+    font-weight:    bold;
+    text-transform: uppercase;
+}
+
+.last
+{
+    margin-bottom: 0;
+}
+
+.first
+{
+    margin-top: 0;
+}
+
+.align-center
+{
+    text-align: center !important;
+}
+
+.align-right
+{
+    text-align: right !important;
+}
+
+.align-left
+{
+    text-align: left !important;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.mt0
+{
+    margin-top: 0;
+}
+
+.mb0
+{
+    margin-bottom: 0;
+}
+
+.preheader
+{
+    color:      transparent;
+    display:    none;
+    height:     0;
+    max-height: 0;
+    max-width:  0;
+    opacity:    0;
+    overflow:   hidden;
+    mso-hide:   all;
+    visibility: hidden;
+    width:      0;
+}
+
+.powered-by a
+{
+    text-decoration: none;
+}
+
+hr
+{
+    border:        0;
+    border-bottom: 1px solid #f6f6f6;
+    margin:        20px 0;
+}

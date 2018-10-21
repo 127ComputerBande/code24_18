@@ -1,0 +1,10 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% trans_default_domain 'admin' %}
+    {% if value is not empty %}
+        <a href="mailto:{{ value }}">
+            {{ value }}
+        </a>
+    {% endif %}
+{% endblock %}

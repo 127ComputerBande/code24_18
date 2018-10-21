@@ -1,0 +1,22 @@
+services:
+    App\Subscriber\VideoApiSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+
+    image.subscriber:
+        class: App\Subscriber\ImageSubscriber
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [setAdapterId, ['%knp_adapter%']]
+            - [setBucketUrl, ['%aws_s3_bucket_url%']]
+            - [setStorage,   ['@vich_uploader.storage']]
+
+    table_prefix.subscriber:
+        class: App\Subscriber\TablePrefixSubscriber
+        arguments:
+            - '%database_table_prefix%'
+        tags:
+            - { name: doctrine.event_subscriber }
