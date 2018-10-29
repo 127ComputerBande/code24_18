@@ -1,0 +1,11 @@
+twig:
+    paths: ['%kernel.project_dir%/templates']
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        google_api_key: '%google_api_key%'
+        kernel_environment: '%kernel.environment%'
+    form_themes:
+        - '@SonataCore/Form/datepicker.html.twig'
+        - 'Form/image.html.twig'
+        - 'Form/map.html.twig'

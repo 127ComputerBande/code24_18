@@ -25,7 +25,10 @@ const german = {
     location:                'Location',
     time:                    'Time',
     checkIntoTitle:          'Check into a railway',
-    dismiss:                 'Dismiss'
+    dismiss:                 'Dismiss',
+    estimatedTravelTime:     'Estimated Travel-Time:',
+    minutes:                 'Minutes',
+    tellUsYourDestination:   'Tell us your destination and we select content based on your estimated travel time'
 };
 
 export default german;

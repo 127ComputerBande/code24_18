@@ -41,7 +41,10 @@ const NavigationOptionsBuilder = (title, settings) => {
         }
 
         if (settings.transparent) {
-            defaultOptions.headerStyle = styles.headerTransparent;
+            defaultOptions.headerStyle = [
+                defaultOptions.headerStyle,
+                styles.headerTransparent
+            ];
         }
 
         let tabBarIcon = settings.tabBarIcon;

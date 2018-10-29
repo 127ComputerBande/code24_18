@@ -1,0 +1,17 @@
+{% block field %}
+    {% trans_default_domain 'admin' %}
+    <tr class="sonata-ba-view-container">
+        <td colspan="2">
+            {% set randomId = 'map' ~ random() %}
+            {% set options = field_description.getOptions() %}
+            <div class="google-map embedded-map-show"
+                 id="{{ randomId }}"
+                 data-latitude="{{ options.latitude }}"
+                 data-longitude="{{ options.longitude }}"
+                 data-radius="{{ options.radiusInM }}"
+                 data-mode="show"
+            >
+            </div>
+        </td>
+    </tr>
+{% endblock %}

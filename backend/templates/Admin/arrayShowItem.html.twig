@@ -1,0 +1,10 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% trans_default_domain 'admin' %}
+    <ul>
+        {% for val in value %}
+            <li>{{ val }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

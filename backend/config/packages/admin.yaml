@@ -1,0 +1,57 @@
+services:
+
+    admin.user:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Entity\User, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User, group: Data }
+        public: true
+
+    admin.category:
+        class: App\Admin\CategoryAdmin
+        arguments: [~, App\Entity\Category, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Kategorien, group: Data }
+        public: true
+
+    admin.video:
+        class: App\Admin\VideoAdmin
+        arguments: [~, App\Entity\Video, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Videos, group: Data }
+        public: true
+
+    admin.line:
+        class: App\Admin\LineAdmin
+        arguments: [~, App\Entity\Line, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Linien, group: Data }
+        public: true
+
+    admin.stop:
+        class: App\Admin\StopAdmin
+        arguments: [~, App\Entity\Stop, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Stops, group: Data }
+        public: true
+
+    admin.stopline:
+        class: App\Admin\StopLineAdmin
+        arguments: [~, App\Entity\StopLine, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Stopreihenfolge, group: Data }
+        public: true
+
+    admin.geolocation:
+        class: App\Admin\GeoLocationAdmin
+        arguments: [~, App\Entity\GeoLocation, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: GeoLocations, group: Data }
+        public: true
+
+    admin.image:
+        class: App\Admin\ImageAdmin
+        arguments: [~, App\Entity\Image, App\Controller\BaseCRUDController]
+        tags:
+            - { name: sonata.admin, manager_type: orm }
+        public: true

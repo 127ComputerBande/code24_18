@@ -1,0 +1,33 @@
+{
+  "name": "symfony-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-expect-file": "^1.0.0",
+    "gulp-less": "^3.3.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify": "^2.1.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-watch": "^4.3.11",
+    "run-sequence": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/lulububu/symfony-skeleton.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/lulububu/symfony-skeleton#readme",
+  "devDependencies": {
+    "gulp-add-src": "^1.0.0"
+  }
+}

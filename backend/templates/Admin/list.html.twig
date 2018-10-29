@@ -1,0 +1,89 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends '@SonataAdmin/CRUD/base_list.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style type="text/css">
+        .sonata-filter-form .col-sm-4 label
+        {
+            margin-right: 20px;
+            padding:      6px 0 0 0;
+            width:        205px;
+        }
+
+        .app-image-preview-list img
+        {
+            max-width:  100%;
+            max-height: 40px;
+        }
+
+        .app-color-preview-list
+        {
+            height:        20px;
+            width:         20px;
+            display:       inline-block;
+            float:         right;
+            border-radius: 3px;
+            border:        1px solid #d2d6de;
+        }
+
+        #s2id_filter_creationDate_value_start_date_day,
+        #s2id_filter_creationDate_value_end_date_day,
+        #s2id_filter_updatedDate_value_start_date_day,
+        #s2id_filter_updatedDate_value_end_date_day
+        {
+            width:         30% !important;
+            margin-bottom: 5px;
+        }
+
+        #s2id_filter_creationDate_value_start_date_month,
+        #s2id_filter_creationDate_value_end_date_month,
+        #s2id_filter_updatedDate_value_start_date_month,
+        #s2id_filter_updatedDate_value_end_date_month
+        {
+            width:         30% !important;
+            margin-bottom: 5px;
+        }
+
+        #s2id_filter_creationDate_value_start_date_year,
+        #s2id_filter_creationDate_value_end_date_year,
+        #s2id_filter_updatedDate_value_start_date_year,
+        #s2id_filter_updatedDate_value_end_date_year
+        {
+            width:         30% !important;
+            margin-bottom: 5px;
+        }
+
+        #s2id_filter_creationDate_value_start_time_hour,
+        #s2id_filter_creationDate_value_end_time_hour,
+        #s2id_filter_updatedDate_value_start_time_hour,
+        #s2id_filter_updatedDate_value_end_time_hour
+        {
+            width: 25% !important;
+        }
+
+        #s2id_filter_creationDate_value_start_time_minute,
+        #s2id_filter_creationDate_value_end_time_minute,
+        #s2id_filter_updatedDate_value_start_time_minute,
+        #s2id_filter_updatedDate_value_end_time_minute
+        {
+            width: 25% !important;
+        }
+
+        #filter_creationDate_value_start
+        {
+            margin: 0 0 5px 0 !important;
+        }
+    </style>
+{% endblock %}

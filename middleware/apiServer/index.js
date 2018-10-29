@@ -19,7 +19,9 @@ const getCategories = async () => {
 
 const transformCategories = (serverCategories = [], itemCategories = []) =>
   serverCategories
-    .filter(cat => itemCategories.findIndex(innerCat => innerCat.name.toLowerCase() === cat.name.toLowerCase()))
+    .filter(
+      cat => cat.name && itemCategories.findIndex(innerCat => innerCat.name && innerCat.name.toLowerCase() === cat.name.toLowerCase()) > 0,
+    )
     .map(cat => cat.id);
 
 const sendToBackend = async (items, caller) => {

@@ -1,0 +1,6 @@
+{% block field %}
+    {% trans_default_domain 'admin' %}
+    <td class="sonata-ba-list-field sonata-ba-list-field-text">
+        {{ value|number_format(0) }}°
+    </td>
+{% endblock %}

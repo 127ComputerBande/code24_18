@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="t1506501963926">
+                <source>User List</source>
+                <target>Benutzer</target>
+            </trans-unit>
+            <trans-unit id="t1506501986834">
+                <source>Email</source>
+                <target>E-Mail-Adresse</target>
+            </trans-unit>
+            <trans-unit id="t1506502003622">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="t1506502006249">
+                <source>Enabled</source>
+                <target>Aktiviert</target>
+            </trans-unit>
+            <trans-unit id="t1506502020187">
+                <source>Action</source>
+                <target>Aktion</target>
+            </trans-unit>
+            <trans-unit id="t1506502029014">
+                <source>Created At</source>
+                <target>Erstelldatum</target>
+            </trans-unit>
+            <trans-unit id="t1506502036336">
+                <source>Updated At</source>
+                <target>Änderungsdatum</target>
+            </trans-unit>
+            <trans-unit id="t1506502101757">
+                <source>User</source>
+                <target>Benutzer</target>
+            </trans-unit>
+            <trans-unit id="t1506502104419">
+                <source>History</source>
+                <target>Verlauf</target>
+            </trans-unit>
+            <trans-unit id="t1506502111111">
+                <source>Creation User</source>
+                <target>Erstellbenutzer</target>
+            </trans-unit>
+            <trans-unit id="t1506502116870">
+                <source>Not set</source>
+                <target>Nicht gesetzt</target>
+            </trans-unit>
+            <trans-unit id="t1506502120705">
+                <source>Updated User</source>
+                <target>Änderungsbenutzer</target>
+            </trans-unit>
+            <trans-unit id="t1506502176840">
+                <source>General</source>
+                <target>Allgemein</target>
+            </trans-unit>
+            <trans-unit id="t1520455422705">
+                <source>Additional</source>
+                <target>Erweitert</target>
+            </trans-unit>
+            <trans-unit id="t1506502181467">
+                <source>Password</source>
+                <target>Passwort</target>
+            </trans-unit>
+            <trans-unit id="t1506502189854">
+                <source>Plain Password</source>
+                <target>Passwort</target>
+            </trans-unit>
+            <trans-unit id="t1506502191985">
+                <source>passwordTip</source>
+                <target>Dieses Feld muss nur gefüllt werden, wenn das Passwort des Benutzers geändert werden soll. Wird
+                    das Feld leer gelassen, bleibt das aktuelle Passwort unverändert bestehen.
+                </target>
+            </trans-unit>
+            <trans-unit id="t1506529491985">
+                <source>rolesTip</source>
+                <target>Rollen: ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN
+                </target>
+            </trans-unit>
+            <trans-unit id="t1530610143610">
+                <source>Roles</source>
+                <target>Rollen</target>
+            </trans-unit>
+            <trans-unit id="t1530609977000">
+                <source>ROLE_ADMIN</source>
+                <target>Administrator</target>
+            </trans-unit>
+            <trans-unit id="t1530609988160">
+                <source>ROLE_SUPER_ADMIN</source>
+                <target>Super-Administrator</target>
+            </trans-unit>
+            <trans-unit id="t1506502361758">
+                <source>User Delete</source>
+                <target>Benutzer löschen</target>
+            </trans-unit>
+            <trans-unit id="t1506502381731">
+                <source>User Create</source>
+                <target>Benutzer erstellen</target>
+            </trans-unit>
+            <trans-unit id="t1506502391579">
+                <source>Logout</source>
+                <target>Ausloggen</target>
+            </trans-unit>
+            <trans-unit id="t1506502451432">
+                <source>Miscellaneous</source>
+                <target>Sonstiges</target>
+            </trans-unit>
+            <trans-unit id="t1506502467726">
+                <source>Users</source>
+                <target>Benutzer</target>
+            </trans-unit>
+            <trans-unit id="t1506503007866">
+                <source>STANDARD</source>
+                <target>Standard</target>
+            </trans-unit>
+            <trans-unit id="t1506504063064">
+                <source>E Mail Address</source>
+                <target>E-Mail-Adresse</target>
+            </trans-unit>
+            <trans-unit id="t1506506391975">
+                <source>Type</source>
+                <target>Typ</target>
+            </trans-unit>
+            <trans-unit id="t1506506395963">
+                <source>STRING</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="t1506506580541">
+                <source>INTEGER</source>
+                <target>Ganzzahl</target>
+            </trans-unit>
+            <trans-unit id="t1506506588425">
+                <source>FLOAT</source>
+                <target>Gleitkommazahl</target>
+            </trans-unit>
+            <trans-unit id="t1506508809365">
+                <source>Value</source>
+                <target>Wert</target>
+            </trans-unit>
+            <trans-unit id="t1506510712018">
+                <source>SUCCESS</source>
+                <target>Erfolgreich</target>
+            </trans-unit>
+            <trans-unit id="t1506510717754">
+                <source>ERROR</source>
+                <target>Fehlgeschlagen</target>
+            </trans-unit>
+            <trans-unit id="t1506511115926">
+                <source>Comment</source>
+                <target>Kommentar</target>
+            </trans-unit>
+            <trans-unit id="t1506588784618">
+                <source>Id</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="t1506692150501">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="t1507205051734">
+                <source>CenterLocation</source>
+                <target>Mittelpunkt</target>
+            </trans-unit>
+            <trans-unit id="t1507205067537">
+                <source>Latitude</source>
+                <target>Breitengrad</target>
+            </trans-unit>
+            <trans-unit id="t1507205080334">
+                <source>Longitude</source>
+                <target>Längengrad</target>
+            </trans-unit>
+            <trans-unit id="t1507205088422">
+                <source>RadiusInM</source>
+                <target>Radius (in Meter)</target>
+            </trans-unit>
+            <trans-unit id="t1507205097751">
+                <source>Map Data</source>
+                <target>Kartendaten</target>
+            </trans-unit>
+            <trans-unit id="t1507207556391">
+                <source>Url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="t1507641101338">
+                <source>hours</source>
+                <target>Stunden</target>
+            </trans-unit>
+            <trans-unit id="t1507641107015">
+                <source>hour</source>
+                <target>Stunde</target>
+            </trans-unit>
+            <trans-unit id="t1507641114532">
+                <source>days</source>
+                <target>Tage</target>
+            </trans-unit>
+            <trans-unit id="t1507641117533">
+                <source>day</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="t1507641124240">
+                <source>minutes</source>
+                <target>Minuten</target>
+            </trans-unit>
+            <trans-unit id="t1507641128525">
+                <source>minute</source>
+                <target>Minute</target>
+            </trans-unit>
+            <trans-unit id="t1506504886736">
+                <source>seconds</source>
+                <target>Sekunden</target>
+            </trans-unit>
+            <trans-unit id="t1507641151390">
+                <source>second</source>
+                <target>Sekunde</target>
+            </trans-unit>
+            <trans-unit id="t1507729334143">
+                <source>DISABLED</source>
+                <target>Deaktiviert</target>
+            </trans-unit>
+            <trans-unit id="t1507729339387">
+                <source>ENABLED</source>
+                <target>Aktiviert</target>
+            </trans-unit>
+            <trans-unit id="t1508159650283">
+                <source>User User Id</source>
+                <target>Benutzer-ID</target>
+            </trans-unit>
+            <trans-unit id="t1508159660059">
+                <source>User Full Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="t1508159686597">
+                <source>User Username</source>
+                <target>Benutzername</target>
+            </trans-unit>
+            <trans-unit id="t1508159686598">
+                <source>Username</source>
+                <target>Benutzername</target>
+            </trans-unit>
+            <trans-unit id="t1506692104135">
+                <source>Data</source>
+                <target>Daten</target>
+            </trans-unit>
+            <trans-unit id="t1507312867497">
+                <source>Internal</source>
+                <target>Intern</target>
+            </trans-unit>
+            <trans-unit id="t1520456639168">
+                <source>Configuration</source>
+                <target>Konfiguration</target>
+            </trans-unit>
+            <trans-unit id="t1520456696775">
+                <source>Example</source>
+                <target>Beispiel</target>
+            </trans-unit>
+            <trans-unit id="t1520456720170">
+                <source>Date</source>
+                <target>Datum</target>
+            </trans-unit>
+            <trans-unit id="t1520456811354">
+                <source>Event Date</source>
+                <target>Eventdatum</target>
+            </trans-unit>
+            <trans-unit id="t1520456795251">
+                <source>Date Time Example</source>
+                <target>Datum und Zeit Beispiel</target>
+            </trans-unit>
+            <trans-unit id="t1520846732555">
+                <source>Example List</source>
+                <target>Beispiele</target>
+            </trans-unit>
+            <trans-unit id="t1520846782047">
+                <source>Color</source>
+                <target>Farbe</target>
+            </trans-unit>
+            <trans-unit id="t1520846798713">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="t1520846847651">
+                <source>Creation Date</source>
+                <target>Erstelldatum</target>
+            </trans-unit>
+            <trans-unit id="t1520846873141">
+                <source>Updated Date</source>
+                <target>Änderungsdatum</target>
+            </trans-unit>
+            <trans-unit id="t1520931859636">
+                <source>API Documentation</source>
+                <target>API-Dokumentation</target>
+            </trans-unit>
+            <trans-unit id="t1526926630965">
+                <source>Image</source>
+                <target>Bild</target>
+            </trans-unit>
+            <trans-unit id="t1526926638272">
+                <source>Image File</source>
+                <target>Bilddatei</target>
+            </trans-unit>
+            <trans-unit id="t1526926656692">
+                <source>Image Name</source>
+                <target>Dateiname</target>
+            </trans-unit>
+            <trans-unit id="t1526926661379">
+                <source>Image Path</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="t1526926676892">
+                <source>-</source>
+                <target>-</target>
+            </trans-unit>
+            <trans-unit id="t1526926682941">
+                <source>Map</source>
+                <target>Karte</target>
+            </trans-unit>
+            <trans-unit id="t1526926728076">
+                <source>Position</source>
+                <target>Position</target>
+            </trans-unit>
+            <trans-unit id="t3524923722076">
+                <source>level_low</source>
+                <target>Niedrig</target>
+            </trans-unit>
+            <trans-unit id="t3524921232076">
+                <source>level_medium</source>
+                <target>Mittel</target>
+            </trans-unit>
+            <trans-unit id="t35249367722076">
+                <source>level_high</source>
+                <target>Hoch</target>
+            </trans-unit>
+            <trans-unit id="t1536351873409">
+                <source>Last Action</source>
+                <target>Letzte Aktion</target>
+            </trans-unit>
+            <trans-unit id="t1536151873409">
+                <source>dev_warning</source>
+                <target>Sie befinden sich in einer Entwicklungsumgebung</target>
+            </trans-unit>
+            <trans-unit id="t1536111873409">
+                <source>staging_warning</source>
+                <target>Sie befinden sich in einer Staging-Umgebung</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>
